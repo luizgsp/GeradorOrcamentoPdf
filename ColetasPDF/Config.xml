@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<Config>
+  <CaminhoOrigem>C:\RELATOS\</CaminhoOrigem>
+  <CaminhoDestino>C:\RELATOS\Impressos\</CaminhoDestino>
+  <ServidorSMTP>mail.minasferramentas.com.br</ServidorSMTP>
+  <ContaEmail>centraldeemailautomatico@minasferramentas.com.br</ContaEmail>
+  <Pass>M1n4aSf*</Pass>
+  <PortaSMTP>587</PortaSMTP>
+  <CorpoEmail><![CDATA[Prezado Cliente,<br />
+<br />
+Desde j&aacute;, agradecemos a oportunidade de apresentar a nossa proposta comercial em anexo.<br />
+Esperamos que nossas condi&ccedil;&otilde;es comerciais atendam a vossa necessidade.<br />
+Estamos &agrave; disposi&ccedil;&atilde;o para esclarecimentos de d&uacute;vidas, negocia&ccedil;&otilde;es e novas consultas.<br />
+<br />
+No aguardo de vossa confirma&ccedil;&atilde;o, antecipamos os nossos agradecimentos.<br /><br />
+
+Este e-mail &eacute; enviado automaticamente. Favor utilizar os dados abaixo para contato.<br />
+]]>
+  </CorpoEmail>
+  <CaminhoImpressora1>\\srvmfprn\HP-3010-PREGAO</CaminhoImpressora1>
+  <CaminhoImpressora2>\\srvmfprn\HP-3010-PREGAO</CaminhoImpressora2>
+</Config>

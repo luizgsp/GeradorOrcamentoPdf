@@ -24,16 +24,13 @@ namespace ColetasPDF.Entities
             Ds.ReadXml(CaminhoXML);
             DataTable Dt = Ds.Tables[0];
 
-            foreach (DataRow Dr in Dt.Rows)
-            {
-                if (Code == int.Parse(Dr["codigo"].ToString()))
-                {
-                    Name = Dr["nome"].ToString();
-                    Email = Dr["email"].ToString();
-                    Password = Dr["senha"].ToString();
-                    Phone = Dr["telefone"].ToString();
-               }
-            }
+            var seller = Dt.AsEnumerable().Where(s => s.Field<string>("codigo") == Code.ToString()).FirstOrDefault();
+
+            Name = seller[1].ToString();
+            Email = seller[2].ToString();
+            Password = seller[3].ToString();
+            Phone = seller[4].ToString();
+
             if (Email == "")
             {
                 Config config = new Config();

@@ -485,11 +485,11 @@ namespace ColetasPDF.Services
                 string sourceFile = Config.SourcePath + @"\" + ColetaPDFAenviar;
 
 
-                string targetFile = @"F:\Aenviar\" + Order.Customer.CnpjCpf.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "") +
+                string targetFile = @"C:\Aenviar\" + Order.Customer.CnpjCpf.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "") +
                     @"\" + Order.OrderNumber + "-" + DateTime.Now.Hour.ToString("00") + "-" +
                     DateTime.Now.Minute.ToString("00") + "-" + DateTime.Now.Second.ToString("00") + ".pdf";
 
-                string existeCaminhoDestino = @"F:\Aenviar\" + Order.Customer.CnpjCpf.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "");
+                string existeCaminhoDestino = @"C:\Aenviar\" + Order.Customer.CnpjCpf.Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "");
                 if (!Directory.Exists(existeCaminhoDestino))
                 {
                     Directory.CreateDirectory(existeCaminhoDestino);

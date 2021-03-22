@@ -25,12 +25,7 @@ namespace ColetasPDF.Entities
 
         public double GetTotais()
         {
-            double sum = 0;
-            foreach (Item item in Items)
-            {
-                sum += item.GetTotalPrice();
-            }
-            return sum;
+            return Items.Sum(p => p.GetTotalPrice()) + LaborValue;
         }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ColetasPDF/1.0.0": {
+        "dependencies": {
+          "itextsharp": "5.5.13.2"
+        },
+        "runtime": {
+          "ColetasPDF.dll": {}
+        }
+      },
+      "itextsharp/5.5.13.2": {
+        "runtime": {
+          "itextsharp.dll": {
+            "assemblyVersion": "5.5.13.2",
+            "fileVersion": "5.5.13.2"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ColetasPDF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "itextsharp/5.5.13.2": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

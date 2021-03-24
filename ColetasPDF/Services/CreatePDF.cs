@@ -686,19 +686,17 @@ namespace ColetasPDF.Services
                         cnpjCpf = cnpjCpf + "000";
                     }
 
-                    string linha = "|" + CodVendedor.ToString("0000") + cnpjCpf + Order.OrderNumber.ToString("0000") + FillFields(Order.Customer.Email.Trim(), 50) +
+                    string linha = "|" + CodVendedor.ToString("0000") + cnpjCpf + Order.OrderNumber.ToString("0000") + ExtensionString.Completing(Order.Customer.Email.Trim(), 50, ' ') +
                             DateTime.Now.ToString("ddMMyy") + stepsEmail + DateTime.Now.ToString("HHmmss") + "00";
 
                     if (stepsEmail == 1)
-                        linha = linha + ("Enviada com sucesso para: " + FillFields(Order.Customer.Email.Trim(), 50).Trim() + " " +
-                            cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") +
-                            ".=================================================").Substring(0, 100);
+
+                        linha = linha + ExtensionString.Completing("Enviada com sucesso para: " + ExtensionString.Completing(Order.Customer.Email.Trim(), 50, ' ') + " " +
+                            cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), 100, '=');
 
                     else
-                        linha = linha + ("Motivo: " + Motivo + " " +
-                        cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") +
-                        ".==========================================================================================================" +
-                        "=================================================================================================").Substring(0, 100);
+                        linha = linha + ExtensionString.Completing("Motivo: " + Motivo + " " +
+                        cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"),100, '=');
                     s.WriteLine(linha);
                     s.Close();
                 }
@@ -780,15 +778,5 @@ namespace ColetasPDF.Services
             }
         }
 
-        private string FillFields(string campo, int tamanho)
-        {
-            int resto = tamanho - campo.Length;
-            while (resto != 0)
-            {
-                campo += " ";
-                resto--;
-            }
-            return campo;
-        }
     }
 }

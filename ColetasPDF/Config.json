@@ -1,0 +1,21 @@
+"Config": {
+  "CaminhoOrigem":"C:\RELATOS\",
+  "CaminhoDestino":"C:\RELATOS\Impressos\",
+  "ServidorSMTP":"mail.myportal.com.br",
+  "ContaEmail":"centraldeemailautomatico@myportal.com.br",
+  "Pass":"mypassword",
+  "PortaSMTP":"587",
+  "CorpoEmail":"<![CDATA[Prezado Cliente,<br />
+<br />
+Desde j&aacute;, agradecemos a oportunidade de apresentar a nossa proposta comercial em anexo.<br />
+Esperamos que nossas condi&ccedil;&otilde;es comerciais atendam a vossa necessidade.<br />
+Estamos &agrave; disposi&ccedil;&atilde;o para esclarecimentos de d&uacute;vidas, negocia&ccedil;&otilde;es e novas consultas.<br />
+<br />
+No aguardo de vossa confirma&ccedil;&atilde;o, antecipamos os nossos agradecimentos.<br /><br />
+
+Este e-mail &eacute; enviado automaticamente. Favor utilizar os dados abaixo para contato.<br />
+]]>",
+  "CaminhoImpressora1":"\\srvmfprn\impressora-loja1",
+  "CaminhoImpressora2":"\\srvmfprn\impressora-loja2",
+  "Telefone":"+55 31 9999-9999"
+}

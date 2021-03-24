@@ -10,32 +10,21 @@ namespace ColetasPDF.Services
 {
     class CreatePDF
     {
-        private string FirstLettre { get; set; }
-        public string Printer1 { get; set; }
-        public string Printer2 { get; set; }
-        private bool Printer { get; set; }
-        private string EmailBody { get; set; }
-        private BaseColor FontColor { get; set; }
-        private bool AlternateColor { get; set; }
         public int ItemsPerPage { get; set; }
-        public Config Config { get; set; } = new Config();
+        private string FirstLettre { get; set; }
+        private static BaseColor FontColor { get; set; }
+        private bool AlternateColor { get; set; }
+        private Config Config { get; set; } = new Config();
         private Order Order { get; set; }
-
-        public CreatePDF(string printer1, string printer2, int itemsPerPage)
-        {
-            Printer1 = printer1;
-            Printer2 = printer2;
-            ItemsPerPage = itemsPerPage;
-        }
 
         public void GerarPDF(string fileTxt)
         {
-            
+
 
             Config.GetConfig();
 
             DateTime Dt1 = DateTime.Now;
-            
+
             try
             {
                 ReadingFile(fileTxt);
@@ -119,7 +108,7 @@ namespace ColetasPDF.Services
                 TableCabec.AddCell(cellCabec);
 
                 string[] arrValores = new string[2];
-                
+
 
                 string[] linhaA1 = new string[10];
                 int countRows = 0;
@@ -130,7 +119,7 @@ namespace ColetasPDF.Services
                 int TotalPaginas = CountPages(Config.SourcePath + fileTxt);
                 int ContaPaginas = 1;
 
-                
+
                 BaseColor baseColor = GetColor(AlternateColor);
                 //imprime o cabecalho fixo
                 // Numero da Cotacao
@@ -696,14 +685,14 @@ namespace ColetasPDF.Services
 
                     else
                         linha = linha + ExtensionString.Completing("Motivo: " + Motivo + " " +
-                        cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"),100, '=');
+                        cnpjCpf + "-" + Order.Customer.Name.Trim() + " Em: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), 100, '=');
                     s.WriteLine(linha);
                     s.Close();
                 }
             }
         }
 
-        private int CountPages(string caminho)
+        private static int CountPages(string caminho)
         {
             StreamReader srArquivo = new StreamReader(caminho);
             int ContaLinhas = 0;
@@ -737,7 +726,7 @@ namespace ColetasPDF.Services
             return ContaPaginas;
         }
 
-        private BaseColor GetColor(bool alternar)
+        private static BaseColor GetColor(bool alternar)
         {
             if (alternar)
             {
@@ -752,29 +741,21 @@ namespace ColetasPDF.Services
             }
         }
 
-        private bool IsValidEmail(string email)
+        private static bool IsValidEmail(string email)
         {
             try
             {
-                //define a expressão regulara para validar o email
-                string texto_Validar = email;
                 Regex expressaoRegex = new Regex(@"\w+@[a-zA-Z_0-9-]+?\.[a-zA-Z]{2,3}");
 
-                // testa o email com a expressão
-                if (expressaoRegex.IsMatch(texto_Validar))
+                if (expressaoRegex.IsMatch(email))
                 {
-                    // o email é valido
                     return true;
                 }
-                else
-                {
-                    // o email é inválido
-                    return false;
-                }
+                return false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw new Exception("Erro: Nao foi possivel validar o e-mail. " + e.Message);
             }
         }
 

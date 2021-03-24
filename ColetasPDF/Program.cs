@@ -88,7 +88,7 @@ namespace ColetasPDF
                 if (FileLenth > 0)
                 {
                     Console.WriteLine(@"Txt {0}", DadosDoArquivo);
-                    CreatePDF gPdf = new CreatePDF("", "", 28);
+                    CreatePDF gPdf = new CreatePDF() { ItemsPerPage = 28};
                     gPdf.GerarPDF(fileinfo.Name);
                 }
                 else
